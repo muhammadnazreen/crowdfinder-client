@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
   Button,
   TextInput,
   StyleSheet,
+  Alert
 } from 'react-native';
+import JoinScreen from '../screens/JoinScreen';
+
+const createTwoButtonAlert = ({setJoined}) => {
+    Alert.alert(
+      "Successfully Joined",
+      "You have successfully participated.",
+      [
+        { text: "OK", onPress: () => setJoined(false) }
+      ]
+    );
+}
 
 const Activity = (props) => {
+
   return (
     <View style={styles.item}>
       <View style={styles.textItems}>
@@ -27,10 +40,11 @@ const Activity = (props) => {
             style={styles.input}
             underlineColorAndroid="transparent"
           />
+          const setJoined={props.setJoined};
           <Button
             title="   Join    "
             onPress={
-              () => alert('Joined!')
+              () => createTwoButtonAlert()
             }
           />
         </View>
